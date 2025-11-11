@@ -6,6 +6,13 @@ public class PruebaCoche {
                 7.1, 
                 200);
 
-        
+        c.repostar(15);
+
+        c.arrancarMotor();
+
+        c.fijarVelocidad(120);
+
+        c.recorrerDistancia(177);
+
     }
 }
