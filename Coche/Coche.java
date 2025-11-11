@@ -171,7 +171,7 @@ public class Coche {
     }
     
     /*
-    hola
+    Estos 3 metodos sirven para el metodo recorrerDistancia(), y estan en privado para que solo se use aqui
     */
     private double consumoInstantaneo(){
         double consumoInstantaneo=0;
@@ -183,24 +183,41 @@ public class Coche {
        double litrosNecesarios=0;
         return litrosNecesarios=distancia*consumoInstantaneo()/100; 
     }
+
+    private double distanciaReal(){
+        return 100*this.numLitrosActual/consumoInstantaneo();
+    }
     
     public void recorrerDistancia (double kilometros){
-        //Este primer if, es para ver si el coche tiene velocidad y los kilometros son positivos
+        //Este primer if, es para mostrar mensaje en caso de que no sea posible moverse con las propiedades actuales
         if (this.velocidadActual==0){
             System.out.println("El coche con matricula " + this.matricula + " no ha recorrido ninguna distancia porque la velocidadActual es 0");
         }
         else if (kilometros<=0){
             System.out.println("El coche con matricula " + this.matricula + " Error, el coche no puede recorrer distancias negativas");
         }
-        
-        //Este segundo if es para calcular si se queda o no con combustible despues de recorrer esos km
-        if (this.numLitrosActual-consumoInstantaneo()<=0) {
+        else if (this.numLitrosActual-consumoInstantaneo()<=0){
             System.out.println("El coche con matricula " + this.matricula + " no puede recorrer "+kilometros+"km, porque se quedaria sin combustible");
         }
-        else if (litrosNecesarios(kilometros)<this.numLitrosActual){
+        
+        //Este segundo if es para que pasaria si si, podemos recorrer distancia completa
+        if (litrosNecesarios(kilometros)<this.numLitrosActual){
             this.kilometraje+=kilometros;
             numLitrosActual-=litrosNecesarios(kilometros);
             System.out.println("El coche con matricula " + this.matricula + " ha recorrido "+kilometros+"km");
+
+            if (numLitrosActual<=(maxLitrosDeposito*0.15)){
+                estaEnReserva=true;
+            }
+        }
+        //Si podemos recorrer la distancia, pero no al completo
+        else {
+            this.kilometraje=distanciaReal();
+            this.numLitrosActual=0;
+            this.estaEnReserva=true;
+            System.out.println("El coche con matricula"+this.matricula+" ha recorrido "+distanciaReal()+"km");
+            System.out.println("El coche con matricula"+this.matricula+" esta sin combustible");
+            System.out.println("El coche con matricula"+this.matricula+" esta parado");
         }
     }
 }
