@@ -16,7 +16,7 @@ public class PruebaCuentaBanco {
         cb2.ingresarDinero(1000);
         cb3.ingresarDinero(1000);
 
-        //Imprimir valores
+        //Imprimir valoreshola
         int resultadoTotalCuentas=CuentaBanco.getNumeroTotalCuentas();
         System.out.println("Se ha/n creado: "+resultadoTotalCuentas+" cuenta/s");
 
