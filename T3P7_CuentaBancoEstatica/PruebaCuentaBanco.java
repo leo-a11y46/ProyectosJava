@@ -10,24 +10,18 @@ public class PruebaCuentaBanco {
         int numC=5;
         String titularC="Jose";
         CuentaBanco cb=new CuentaBanco(numC, titularC);
+        CuentaBanco cb2=new CuentaBanco(numC, titularC);
+        CuentaBanco cb3=new CuentaBanco(numC, titularC);
         
-        double saldoIngresado=200; //Cambiar esta variable para ingresar mas o menos saldo
-        cb.ingresarDinero(saldoIngresado);
-        System.out.println("He ingresado "+saldoIngresado);
-
-        double cbSaldo=cb.ConsultarSaldo(); 
-        System.out.println("Mi cuenta tiene de saldo: "+cbSaldo);
-        
-        double saldoRetirado=50; //Cambiar esta variable para retirar mas o menos saldo
-        cb.retirarDinero(saldoRetirado);
-        System.out.println("He retirado "+saldoRetirado);
-        
-        cbSaldo=cb.ConsultarSaldo();
-        System.out.println(cbSaldo);
-        
-        cb.imprimirDatos();
+        //Ingresar dinero a cada cuenta
+        cb.ingresarDinero(500);
+        cb2.ingresarDinero(555);
+        cb3.ingresarDinero(500);
 
         int resultadoTotalCuentas=CuentaBanco.getNumeroTotalCuentas();
         System.out.println("Se ha/n creado: "+resultadoTotalCuentas+" cuenta/s");
+
+        int resultadoTotalSaldo=CuentaBanco.getSaldoTotalCuentas();
+        System.out.println("El saldo total de todas las cuentas es: "+resultadoTotalSaldo);
     }
 }

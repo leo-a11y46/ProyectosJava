@@ -8,8 +8,14 @@ public class CuentaBanco {
 
    private boolean bloqueada;
 
-   private static int numeroTotalCuentas=0;
+   private static int numeroTotalCuentas=0, getSaldoTotalCuentas=0;
    
+   /*
+    *Además vamos a sobrecargar el constructor de forma que ahora
+    recibamos como parámetros de entrada: el número de la cuenta a
+    crear, el nombre del titular, el saldo inicial y su estado de bloqueo.
+    */
+    
    //Constructor
     CuentaBanco(int numC, String titularC){
         String numCString=Integer.toString(numC);
@@ -31,6 +37,7 @@ public class CuentaBanco {
                 System.out.println("Cuenta bloqueada");
             }else {
                 saldo += cantidad;
+                getSaldoTotalCuentas+=saldo;
             }
             
         }
@@ -83,5 +90,9 @@ public class CuentaBanco {
 
         public static int getNumeroTotalCuentas(){
             return numeroTotalCuentas;
+        }
+
+        public static int getSaldoTotalCuentas(){
+            return getSaldoTotalCuentas;
         }
 }
