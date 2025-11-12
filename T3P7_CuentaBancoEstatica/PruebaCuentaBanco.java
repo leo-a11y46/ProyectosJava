@@ -7,21 +7,32 @@ import java.util.*;
 public class PruebaCuentaBanco {
 
     public static void main(String[] args) {
-        int numC=5;
-        String titularC="Jose";
-        CuentaBanco cb=new CuentaBanco(numC, titularC);
-        CuentaBanco cb2=new CuentaBanco(numC, titularC);
-        CuentaBanco cb3=new CuentaBanco(numC, titularC);
+        CuentaBanco cb=new CuentaBanco(001, "Pedro", 0, false);
+        CuentaBanco cb2=new CuentaBanco(002, "Jose", 0, false);
+        CuentaBanco cb3=new CuentaBanco(003, "Alberto",0, false);
         
         //Ingresar dinero a cada cuenta
-        cb.ingresarDinero(500);
-        cb2.ingresarDinero(555);
-        cb3.ingresarDinero(500);
+        cb.ingresarDinero(1000);
+        cb2.ingresarDinero(1000);
+        cb3.ingresarDinero(1000);
 
+        //Imprimir valores
         int resultadoTotalCuentas=CuentaBanco.getNumeroTotalCuentas();
         System.out.println("Se ha/n creado: "+resultadoTotalCuentas+" cuenta/s");
 
         int resultadoTotalSaldo=CuentaBanco.getSaldoTotalCuentas();
+        System.out.println("El saldo total de todas las cuentas es: "+resultadoTotalSaldo);
+
+        //Retirar 100 euros a cada cuenta
+        cb.retirarDinero(100);
+        cb2.retirarDinero(100);
+        cb3.retirarDinero(100);
+
+        //Imprimir valores
+        resultadoTotalCuentas=CuentaBanco.getNumeroTotalCuentas();
+        System.out.println("Se ha/n creado: "+resultadoTotalCuentas+" cuenta/s");
+
+        resultadoTotalSaldo=CuentaBanco.getSaldoTotalCuentas();
         System.out.println("El saldo total de todas las cuentas es: "+resultadoTotalSaldo);
     }
 }
