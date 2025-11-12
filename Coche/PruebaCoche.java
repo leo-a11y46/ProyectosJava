@@ -10,9 +10,13 @@ public class PruebaCoche {
 
         c.arrancarMotor();
 
+        c.fijarVelocidad(80);
+
+        c.recorrerDistancia(10);
+
         c.fijarVelocidad(120);
 
-        c.recorrerDistancia(100);
+        c.recorrerDistancia(300);
 
     }
 }

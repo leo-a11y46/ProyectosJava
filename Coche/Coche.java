@@ -41,7 +41,7 @@ public class Coche {
             System.out.println("El coche con matricula "+this.matricula+" ha arrancado");
             motorArrancado = true;
             
-            if (estaEnReserva==true){
+            if (estaEnReserva){
                 System.out.println("El coche con matricula "+this.matricula+" esta en reserva de combustible");
             }
         }
@@ -50,7 +50,7 @@ public class Coche {
             System.out.println("El coche con matricula "+this.matricula+" no tiene combustible");
         }
         
-        else if (motorArrancado==true){
+        else if (motorArrancado){
             System.out.println("El coche con matricula " + this.matricula +" ya esta arrancado");
         }
     } 
@@ -73,6 +73,10 @@ public class Coche {
         else {
             this.numLitrosActual+=litros;
             System.out.println("El coche con matricula " + this.matricula + " tiene "+numLitrosActual+" litros de combustible");
+        }
+
+        if (numLitrosActual>(maxLitrosDeposito*0.15)){
+            estaEnReserva=false;
         }
     }
     
@@ -107,7 +111,7 @@ public class Coche {
     }
     
     private double litrosNecesarios(double distancia){
-       double litrosNecesarios=0;
+        double litrosNecesarios=0;
         return litrosNecesarios=distancia*consumoInstantaneo()/100; 
     }
 
