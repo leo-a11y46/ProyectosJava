@@ -127,7 +127,7 @@ public class Coche {
             System.out.println("El coche con matricula " + this.matricula + " no puede recorrer "+kilometros+"km, porque se quedaria sin combustible");
         }
         
-        //Este segundo if es para que pasaria si si, podemos recorrer distancia completa
+        //Este segundo if es para que pasaria si, podemos recorrer distancia completa
         if (litrosNecesarios(kilometros)<this.numLitrosActual){
             this.kilometraje+=kilometros;
             numLitrosActual-=litrosNecesarios(kilometros);

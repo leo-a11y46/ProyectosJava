@@ -12,7 +12,7 @@ public class PruebaCoche {
 
         c.fijarVelocidad(120);
 
-        c.recorrerDistancia(177);
+        c.recorrerDistancia(100);
 
     }
 }
