@@ -22,18 +22,17 @@ public class CuentaCorriente {
          */
 
          this.saldo+=cantidad;
-         System.out.println("Se han ingresado "+cantidad+"$ a tu cuenta");
+         System.out.println("Se han ingresado "+cantidad+"$ a la cuenta "+this.numCuenta);
         
     }
 
     boolean retiraEfectivo(double cantidad){
         /*
          * Pedirá por teclado el importe que queremos retirar y comprobará que hay saldo suficiente.
-         * Si hay saldo, restará el importe, y devolverá true, en caso contrario no retirará el dinero y devolverá false.
+         * Si hay saldo, restará el importe, y devolverá true, en caso contrario devolverá false y retirará el dinero.
          */
 
         if (cantidad>this.saldo){
-            System.out.println("No es posible realizar esa operacion, no tienes suficiente saldo");
             return false;
          }
         else if (cantidad<0){
@@ -51,5 +50,9 @@ public class CuentaCorriente {
     //getter-setter
     public String getnumCuenta(){
         return this.numCuenta;
+    }
+
+    public double getsaldo(){
+        return this.saldo;
     }
 }
