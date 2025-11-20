@@ -24,8 +24,16 @@ public class LineaAutobus {
             */
             return "Linea: "+this.numLinea+" Frecuencia: "+
                     this.frecuencia+" minutos"+
-                    "\nParadas: "+this.paradas;
+                    "\nParadas: ";
         }
+
+        //Bucle para imprimir contenido array
+        void imprimirArray(int[] array){
+            for (int i=0;i<array.length;i++){
+                System.out.print(array[i]+"--");
+            }
+        }
+        
 
         
         
@@ -34,7 +42,9 @@ public class LineaAutobus {
 
 
     //Getters
-
+        public int[] getParadas(){
+        return this.paradas;
+    }
 
     //Metodos objeto
  }
